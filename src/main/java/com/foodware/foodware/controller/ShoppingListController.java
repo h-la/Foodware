@@ -48,7 +48,7 @@ public class ShoppingListController {
     }
 
     // only for development use
-
+/*
     @GetMapping("/newUser")
     @ResponseBody
     public String make() {
@@ -59,6 +59,6 @@ public class ShoppingListController {
         accountRepository.save(a);
         return "Salasana lisätty";
     }
-
+*/
 
 }
