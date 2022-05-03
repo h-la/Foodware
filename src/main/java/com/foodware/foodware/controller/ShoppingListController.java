@@ -5,6 +5,7 @@ import com.foodware.foodware.dao.ProductRepository;
 import com.foodware.foodware.model.Account;
 import com.foodware.foodware.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,9 @@ public class ShoppingListController {
     @Autowired
     private ProductRepository productRepository;
 
+    @Value("${spring.pass}")
+    private String PASS;
+
     @GetMapping("/")
     public String getShoppingList(Model model){
         model.addAttribute("products", productRepository.findAll());
@@ -44,16 +48,17 @@ public class ShoppingListController {
     }
 
     // only for development use
-    /*
+
     @GetMapping("/newUser")
     @ResponseBody
     public String make() {
         Account a = new Account();
-        a.setUsername("testi");
-        a.setPassword(passwordEncoder.encode("password"));
+        a.setUsername("henkka");
+
+        a.setPassword(passwordEncoder.encode(PASS));
         accountRepository.save(a);
         return "Salasana lisätty";
     }
 
-     */
+
 }
