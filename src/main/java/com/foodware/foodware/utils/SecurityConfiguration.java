@@ -30,7 +30,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/h2-console", "/h2-console/**").permitAll()
                 .anyRequest().authenticated();
         http.formLogin()
-                .permitAll();
+                .permitAll().and()
+                .logout().permitAll().deleteCookies("JSESSIONID");
     }
 
     @Bean

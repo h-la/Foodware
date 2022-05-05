@@ -26,8 +26,8 @@ public class ShoppingListController {
     @Autowired
     private ProductRepository productRepository;
 
-    @Value("${spring.pass}")
-    private String PASS;
+    /*@Value("${spring.pass}")
+    private String PASS;*/
 
     @GetMapping("/")
     public String getShoppingList(Model model){

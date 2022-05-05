@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head" lang="en">
+    <meta charset="UTF-8" />
+    <title>Foodware</title>
+</head>
+<body>
+<header th:fragment="header">
+    <nav>
+        <a href="/">Ostoslista</a>
+        <a href="/">Varasto</a>
+        <a href="/">Tuotteet</a>
+    </nav>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+    <h1 th:text="${text}">Otsikko</h1>
+</header>
+
+</body>
+</html>
