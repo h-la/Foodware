@@ -1,15 +1,18 @@
-name: Hello world!
+name: Hello World!
 
 on:
-        pull_request:
-                types: [opened, reopened]
-                branches:
-                        - master
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
 
 jobs:
-        hello_world_job:
-                runs-on: ubuntu-20.04
-                steps:
-                        - name: Say hello
-                        run: |
-                         echo "Hello World!"       
+  hello_world_job:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Say hello
+        run: |
+          echo "Hello World!"
+
+
