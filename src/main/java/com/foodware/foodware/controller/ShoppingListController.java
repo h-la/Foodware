@@ -35,18 +35,6 @@ public class ShoppingListController {
         return "index";
     }
 
-    @PostMapping("/products")
-    public String addProduct(@RequestParam String productName, @RequestParam int number, @RequestParam double quantity, @RequestParam String quantityUnit) {
-        if (productRepository.findByProductName(productName) != null) {
-            return "redirect:/";
-        }
-
-        Product product = new Product(productName, number, quantity, quantityUnit);
-        productRepository.save(product);
-        return "redirect:/";
-
-    }
-
     // only for development use
 /*
     @GetMapping("/newUser")
