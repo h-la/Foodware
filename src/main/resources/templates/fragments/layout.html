@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head" lang="en">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta charset="UTF-8" />
     <title>Foodware</title>
 </head>
@@ -10,13 +10,25 @@
     <nav>
         <a href="/">Ostoslista</a>
         <a href="/">Varasto</a>
-        <a href="/">Tuotteet</a>
+        <a href="/products">Tuotteet</a>
     </nav>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Logout"/>
     </form>
     <h1 th:text="${text}">Otsikko</h1>
 </header>
+
+<form method="POST" th:fragment="productForm" th:action="@{/products}">
+    <label>Tuotteen nimi:</label><br>
+    <input type="text" name="productName"/><br>
+    <label>kpl:</label><br>
+    <input type="number" name="number"/><br>
+    <label>määrä:</label><br>
+    <input type="number" name="quantity"/><br>
+    <label>yksikkö:</label><br>
+    <input type="text" name="quantityUnit"/><br><br>
+    <input type="submit" value="Lisää tuote"/>
+</form>
 
 </body>
 </html>

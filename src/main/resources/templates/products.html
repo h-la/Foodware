@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout :: head" lang="en">
+    <meta charset="UTF-8" />
+    <title>Foodware</title>
+</head>
+<body>
+
+<div th:replace="fragments/layout :: header(text='Tuotteet')"></div>
+
+<ol>
+    <li th:each="product : ${products}">
+        <span th:text="${product.id}">name</span>
+        <span th:text="${product.productName}">name</span>
+    </li>
+</ol>
+
+<div th:replace="fragments/layout :: productForm"></div>
+
+</body>
+</html>
