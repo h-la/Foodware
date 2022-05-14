@@ -22,15 +22,20 @@ public class ProductController {
         return "products";
     }
 
-    @PostMapping("/products")
+    @GetMapping("/newproduct")
+    public String addNewProducts(Model model){
+        return "addNewProduct";
+    }
+
+    @PostMapping("/newproduct")
     public String addProduct(@RequestParam String productName, @RequestParam int number, @RequestParam double quantity, @RequestParam String quantityUnit) {
         if (productRepository.findByProductName(productName) != null) {
-            return "redirect:/";
+            return "redirect:/newproduct";
         }
 
         Product product = new Product(productName, number, quantity, quantityUnit);
         productRepository.save(product);
-        return "redirect:/products";
+        return "redirect:/newproduct";
     }
 
 }
