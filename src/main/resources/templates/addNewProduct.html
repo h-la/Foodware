@@ -6,14 +6,9 @@
 </head>
 <body>
 
-<div th:replace="fragments/layout :: header(text='Tuotteet')"></div>
+<div th:replace="fragments/layout :: header(text='Lisää tuote')"></div>
 
-<ol>
-    <li th:each="product : ${products}">
-        <span th:text="${product.id}">name</span>
-        <span th:text="${product.productName}">name</span>
-    </li>
-</ol>
+<div th:replace="fragments/layout :: productForm"></div>
 
 </body>
 </html>

@@ -4,21 +4,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta charset="UTF-8" />
     <title>Foodware</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+
 <header th:fragment="header">
+    <div class="header-container">
+        <div class="header-row-container">
+        <img id="logo" th:src="@{/images/logo.png}" alt="Logo" />
+        <form id="logout-button" th:action="@{/logout}" method="post">
+            <input type="submit" value="Logout"/>
+        </form>
+        </div>
+    </div>
     <nav>
         <a href="/">Ostoslista</a>
-        <a href="/">Varasto</a>
         <a href="/products">Tuotteet</a>
+        <a href="/newproduct">Lisää tuote</a>
     </nav>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Logout"/>
-    </form>
     <h1 th:text="${text}">Otsikko</h1>
 </header>
 
-<form method="POST" th:fragment="productForm" th:action="@{/products}">
+<form method="POST" th:fragment="productForm" th:action="@{/newproduct}">
     <label>Tuotteen nimi:</label><br>
     <input type="text" name="productName"/><br>
     <label>kpl:</label><br>
