@@ -12,15 +12,15 @@
     <div class="header-container">
         <div class="header-row-container">
             <div class="nav-container">
-                <nav>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a class="icon">
+                    <img id="menu" th:src="@{/images/menu.png}" alt="menubar" />
+                </a>
+                <nav id="nav-bar">
                     <a href="/">Ostoslista</a>
                     <a href="/products">Tuotteet</a>
                     <a href="/newproduct">Lisää tuote</a>
                 </nav>
-                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <img id="menu" th:src="@{/images/menu.png}" alt="menubar" />
-                </a>
             </div>
             <div class="logo-container">
                 <img id="logo" th:src="@{/images/logo.png}" alt="Logo" />

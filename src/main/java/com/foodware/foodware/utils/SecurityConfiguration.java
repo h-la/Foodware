@@ -20,6 +20,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // Force to use https in Heroku
+        http.requiresChannel()
+                .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
+                .requiresSecure();
+
         // poistetaan csrf-tarkistus käytöstä h2-konsolin vuoksi
         http.csrf().disable();
         // sallitaan framejen käyttö

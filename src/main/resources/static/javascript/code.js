@@ -1,13 +1,27 @@
+const nav = document.getElementById("nav-bar");
+const icon = document.getElementsByClassName("icon");
+
 /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-        x.style.display = "none";
+const toggleMenuBar = () => {
+    if (nav.style.display === "flex") {
+        nav.style.display = "none";
+        icon[0].style.marginLeft = "26px";
     } else {
-        x.style.display = "block";
+        nav.style.display = "flex";
+        icon[0].style.marginLeft = "-29.86px";
     }
 }
 
-const button = document.getElementById('searchButton');
+const menuButton = document.getElementById('menu');
+menuButton.addEventListener('click', toggleMenuBar);
 
-button.addEventListener('click', activateSearch);
+window.addEventListener('resize', function(event) {
+    const newWidth = window.innerWidth;
+    if (newWidth >= 850) {
+        nav.style.display = "flex";
+        icon[0].style.marginLeft = "-29.86px";
+    } else {
+        nav.style.display = "none";
+        icon[0].style.marginLeft = "26px";
+    }
+});
