@@ -3,7 +3,7 @@ body {
     font-size: 16px;
     line-height: 1.5;
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 1300px;
     color: #555;
     text-align: center;
 }
@@ -19,6 +19,17 @@ body {
     justify-content: space-between;
 }
 
+.nav-container {
+    overflow: hidden;
+    position: relative;
+    margin-top: 45px;
+}
+
+#nav-bar {
+    display: none;
+    flex-direction: column;
+}
+
 nav a {
     color: #333333;
     padding: 14px 16px;
@@ -28,6 +39,59 @@ nav a {
 
 nav a:hover {
     background-color: #ddd;
+}
+
+/* Style the hamburger menu */
+.icon {
+    background: #FFFFFF;
+    color: #333333;
+    display: block;
+    position: static;
+    margin-top: -10px;
+    margin-left: 26px;
+}
+
+@media only screen and (min-width: 945px) {
+    #logo {
+        padding-right: 232px;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    #nav-bar {
+        display: flex;
+        flex-direction: row;
+    }
+
+    nav a {
+        color: #333333;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    nav a:hover {
+        background-color: #ddd;
+    }
+
+    /* Style the hamburger menu */
+    .icon {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .logo-container {
+        display: contents !important;
+    }
+}
+
+.logo-container {
+    display:none;
+}
+
+#logo {
+    max-height: 150px;
 }
 
 #logout-button {
@@ -47,12 +111,7 @@ nav a:hover {
     background-color:#4095c6;
 }
 
-#logo {
-    width: 250px;
-}
-
 h1 {
-    padding-top: 1em;
     color: #333;
 }
 
@@ -65,3 +124,5 @@ ol {
 form {
     padding-bottom: 1em;
 }
+
+

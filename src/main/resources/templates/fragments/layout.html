@@ -11,18 +11,27 @@
 <header th:fragment="header">
     <div class="header-container">
         <div class="header-row-container">
-        <img id="logo" th:src="@{/images/logo.png}" alt="Logo" />
-        <form id="logout-button" th:action="@{/logout}" method="post">
-            <input type="submit" value="Logout"/>
-        </form>
+            <div class="nav-container">
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a class="icon">
+                    <img id="menu" th:src="@{/images/menu.png}" alt="menubar" />
+                </a>
+                <nav id="nav-bar">
+                    <a href="/">Ostoslista</a>
+                    <a href="/products">Tuotteet</a>
+                    <a href="/newproduct">Lisää tuote</a>
+                </nav>
+            </div>
+            <div class="logo-container">
+                <img id="logo" th:src="@{/images/logo.png}" alt="Logo" />
+            </div>
+            <form id="logout-button" th:action="@{/logout}" method="post">
+                <input type="submit" value="Logout"/>
+            </form>
         </div>
     </div>
-    <nav>
-        <a href="/">Ostoslista</a>
-        <a href="/products">Tuotteet</a>
-        <a href="/newproduct">Lisää tuote</a>
-    </nav>
     <h1 th:text="${text}">Otsikko</h1>
+    <script th:src="@{/javascript/code.js}"></script>
 </header>
 
 <form method="POST" th:fragment="productForm" th:action="@{/newproduct}">
