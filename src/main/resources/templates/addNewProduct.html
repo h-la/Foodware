@@ -8,7 +8,25 @@
 
 <div th:replace="fragments/layout :: header(text='Lisää tuote')"></div>
 
-<div th:replace="fragments/layout :: productForm"></div>
+<form method="POST" th:fragment="productForm" th:action="@{/newproduct}">
+    <label>Tuotteen nimi:</label><br>
+    <input type="text" name="productName"/><br>
+    <label>kpl:</label><br>
+    <input type="number" name="number"/><br>
+    <label>määrä:</label><br>
+    <input type="number" name="quantity"/><br>
+    <label>yksikkö:</label><br>
+    <select type="text" name="quantityUnits">
+        <option></option>
+        <option th:each="quantityUnit : ${quantityUnits}" th:value="${quantityUnit}" th:label="${quantityUnit}">
+    </select><br>
+    <label>kategoria:</label><br>
+    <select type="text" name="gategory">
+        <option></option>
+        <option th:each="gategory : ${gategories}" th:value="${gategory}" th:label="${gategory}">
+    </select><br><br>
+    <input type="submit" value="Lisää tuote"/>
+</form>
 
 </body>
 </html>

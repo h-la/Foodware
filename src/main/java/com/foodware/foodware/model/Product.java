@@ -15,8 +15,8 @@ import javax.persistence.Entity;
 public class Product  extends AbstractPersistable<Long> {
 
     private String productName;
-    private int number;
+    //private int number;
     private double quantity;
-    private String quantityUnit;
-
+    private QuantityUnit quantityUnit;
+    private Gategory gategory;
 }
