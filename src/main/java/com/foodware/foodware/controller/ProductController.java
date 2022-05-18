@@ -2,7 +2,9 @@
 package com.foodware.foodware.controller;
 
 import com.foodware.foodware.dao.ProductRepository;
+import com.foodware.foodware.model.Gategory;
 import com.foodware.foodware.model.Product;
+import com.foodware.foodware.model.QuantityUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,17 +25,19 @@ public class ProductController {
     }
 
     @GetMapping("/newproduct")
-    public String addNewProducts(Model model){
+    public String getNewProductPage(Model model){
+        model.addAttribute("gategories", Gategory.values());
+        model.addAttribute( "quantityUnits", QuantityUnit.values());
         return "addNewProduct";
     }
 
     @PostMapping("/newproduct")
-    public String addProduct(@RequestParam String productName, @RequestParam int number, @RequestParam double quantity, @RequestParam String quantityUnit) {
+    public String addProduct(@RequestParam String productName, @RequestParam double quantity, @RequestParam QuantityUnit quantityUnit, Gategory gategory) {
         if (productRepository.findByProductName(productName) != null) {
             return "redirect:/newproduct";
         }
 
-        Product product = new Product(productName, number, quantity, quantityUnit);
+        Product product = new Product(productName, quantity, quantityUnit, gategory);
         productRepository.save(product);
         return "redirect:/newproduct";
     }

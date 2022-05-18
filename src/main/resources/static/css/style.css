@@ -125,4 +125,9 @@ form {
     padding-bottom: 1em;
 }
 
+form select {
+    width: 170.4px;
+    height: 22px;
+}
+
 
