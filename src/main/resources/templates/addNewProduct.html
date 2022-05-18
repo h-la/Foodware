@@ -11,12 +11,10 @@
 <form method="POST" th:fragment="productForm" th:action="@{/newproduct}">
     <label>Tuotteen nimi:</label><br>
     <input type="text" name="productName"/><br>
-    <label>kpl:</label><br>
-    <input type="number" name="number"/><br>
     <label>määrä:</label><br>
     <input type="number" name="quantity"/><br>
     <label>yksikkö:</label><br>
-    <select type="text" name="quantityUnits">
+    <select type="text" name="quantityUnit">
         <option></option>
         <option th:each="quantityUnit : ${quantityUnits}" th:value="${quantityUnit}" th:label="${quantityUnit}">
     </select><br>
