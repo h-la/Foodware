@@ -5,8 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -14,9 +15,10 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Product extends AbstractPersistable<Long> {
 
+    @NotEmpty
+    @Size(min = 2)
     private String productName;
-    //private int number;
-    private double quantity;
+    private int quantity;
     private QuantityUnit quantityUnit;
     private Gategory gategory;
 }

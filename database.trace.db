@@ -274,3 +274,21 @@ create table account (id bigint not null, password varchar(255), username varcha
 2022-05-15 21:57:30 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCT" already exists; SQL statement:
 create table product (id bigint not null, gategory integer, product_name varchar(255), quantity double not null, quantity_unit integer, primary key (id)) [42101-200]
+2022-05-20 21:43:16 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM PRODUCT"; expected "identifier"; SQL statement:
+delete * from product [42001-200]
+2022-05-20 22:13:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM PRODUCT WHERE ID=18"; expected "identifier"; SQL statement:
+delete * from product where id=18 [42001-200]
+2022-05-20 22:13:55 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM PRODUCT WHERE ID=""18"""; expected "identifier"; SQL statement:
+delete * from product where id="18" [42001-200]
+2022-05-20 22:14:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM PRODUCT WHERE ID=18"; expected "identifier"; SQL statement:
+delete * from product where id=18 [42001-200]
+2022-05-20 22:14:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM PRODUCT WHERE ID=18"; expected "identifier"; SQL statement:
+delete * from PRODUCT where id=18 [42001-200]
+2022-05-20 22:14:26 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM PRODUCT WHERE ID=18"; expected "identifier"; SQL statement:
+delete * from PRODUCT where id=18 [42001-200]

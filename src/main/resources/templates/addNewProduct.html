@@ -8,23 +8,45 @@
 
 <div th:replace="fragments/layout :: header(text='Lisää tuote')"></div>
 
-<form method="POST" th:fragment="productForm" th:action="@{/newproduct}">
-    <label>Tuotteen nimi:</label><br>
-    <input type="text" name="productName"/><br>
+<form action="#" th:action="@{/newproduct}" th:object="${product}" method="POST">
+   <!-- <label>Tuotteen nimi:</label><br>
+    <input type="text" name="productName" th:field="*{productName}"/><br>
+    <td th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">SSN Virheviesti</td>
     <label>määrä:</label><br>
-    <input type="number" name="quantity"/><br>
+    <input  type="number" name="quantity" th:field="*{quantity}"/><br>
     <label>yksikkö:</label><br>
-    <select type="text" name="quantityUnit">
+
+    <select type="text" name="quantityUnit" th:field="*{quantityUnit}">
         <option></option>
         <option th:each="quantityUnit : ${quantityUnits}" th:value="${quantityUnit}" th:label="${quantityUnit}">
     </select><br>
     <label>kategoria:</label><br>
-    <select type="text" name="gategory">
+    <select type="text" name="gategory" th:field="*{gategory}">
         <option></option>
         <option th:each="gategory : ${gategories}" th:value="${gategory}" th:label="${gategory}">
+    </select><br><br> -->
+
+    <label>Tuotteen nimi:</label><br>
+    <input type="text" th:field="*{productName}"/><br>
+    <p th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">SSN Virheviesti</p>
+    <p th:if="${errorMessage != null}" th:text="${errorMessage}">testi></p>
+    <label>määrä:</label><br>
+    <input type="number" th:field="*{quantity}"/><br>
+    <label>yksikkö:</label><br>
+    <select type="text" th:field="*{quantityUnit}">
+        <option value="empty"></option>
+        <option th:each="index : ${quantityUnits}" th:value="${index}" th:label="${index}">
+    </select><br>
+    <label>kategoria:</label><br>
+    <select type="text" th:field="*{gategory}">
+        <option value="empty"></option>
+        <option th:each="index : ${gategories}" th:value="${index}" th:label="${index}">
     </select><br><br>
+
     <input type="submit" value="Lisää tuote"/>
 </form>
+
+<p role="alert" th:text="${success}" th:if="${success}"></p>
 
 </body>
 </html>
