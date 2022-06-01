@@ -292,3 +292,21 @@ delete * from PRODUCT where id=18 [42001-200]
 2022-05-20 22:14:26 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM PRODUCT WHERE ID=18"; expected "identifier"; SQL statement:
 delete * from PRODUCT where id=18 [42001-200]
+2022-05-25 17:19:22 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE PRODUCT FROM[*] PRODUCT WHERE ID=27"; SQL statement:
+delete product FROM PRODUCT where id=27 [42000-200]
+2022-05-25 17:19:28 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE PRODUCT FROM[*] PRODUCT WHERE ID=""27"""; SQL statement:
+delete product FROM PRODUCT where id="27" [42000-200]
+2022-05-25 17:20:29 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM PRODUCT WHERE ID=27"; expected "identifier"; SQL statement:
+delete * FROM PRODUCT where ID=27 [42001-200]
+2022-05-25 17:20:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE PRODUCT FROM[*] PRODUCT WHERE ID=27"; SQL statement:
+delete PRODUCT FROM PRODUCT where ID=27 [42000-200]
+2022-05-25 17:20:58 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE PRODUCT FROM[*] PRODUCT WHERE PRODUCT.ID=27"; SQL statement:
+delete PRODUCT FROM PRODUCT where PRODUCT.ID=27 [42000-200]
+2022-05-25 17:21:03 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM PRODUCT WHERE PRODUCT.ID=27"; expected "identifier"; SQL statement:
+delete * FROM PRODUCT where PRODUCT.ID=27 [42001-200]
