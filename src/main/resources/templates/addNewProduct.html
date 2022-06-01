@@ -8,23 +8,33 @@
 
 <div th:replace="fragments/layout :: header(text='Lisää tuote')"></div>
 
-<form method="POST" th:fragment="productForm" th:action="@{/newproduct}">
+<form action="#" th:action="@{/newproduct}" th:object="${product}" method="POST">
+
     <label>Tuotteen nimi:</label><br>
-    <input type="text" name="productName"/><br>
+    <input type="text" th:field="*{productName}"/><br>
+    <p class="error-message" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">SSN Virheviesti</p>
+    <p class="error-message" th:if="${errorMessageProductName != null}" th:text="${errorMessageProductName}">testi></p>
     <label>määrä:</label><br>
-    <input type="number" name="quantity"/><br>
+    <input type="number" min="1" th:field="*{quantity}" required/><br>
+    <p class="error-message" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">SSN Virheviesti</p>
     <label>yksikkö:</label><br>
-    <select type="text" name="quantityUnit">
-        <option></option>
-        <option th:each="quantityUnit : ${quantityUnits}" th:value="${quantityUnit}" th:label="${quantityUnit}">
+    <select type="text" th:field="*{quantityUnit}">
+        <option value="empty"></option>
+        <option th:each="index : ${quantityUnits}" th:value="${index}" th:label="${index.label}">
     </select><br>
+    <p class="error-message" th:if="${errorMessageQuantityUnit != null}" th:text="${errorMessageQuantityUnit}">testi></p>
     <label>kategoria:</label><br>
-    <select type="text" name="gategory">
-        <option></option>
-        <option th:each="gategory : ${gategories}" th:value="${gategory}" th:label="${gategory}">
-    </select><br><br>
+    <select type="text" th:field="*{gategory} ">
+        <option value=null></option>
+        <option th:each="index : ${gategories}" th:value="${index}" th:label="${index.label}">
+    </select>
+    <p class="error-message" th:if="${errorMessageGategory != null}" th:text="${errorMessageGategory}">testi></p>
+    <br><br>
+
     <input type="submit" value="Lisää tuote"/>
 </form>
+
+<p class="message" role="alert" th:text="${success}" th:if="${success}"></p>
 
 </body>
 </html>
